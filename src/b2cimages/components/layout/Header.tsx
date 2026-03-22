@@ -1,96 +1,112 @@
-import { motion } from "framer-motion";
-import { Link, useLocation } from "react-router-dom";
-import Container from "../ui/Container";
-import GlowButton from "../ui/GlowButton";
-import { FaCrown } from "react-icons/fa";
-
-const links = [
-  { label: "Gallery", to: "/gallery" },
-  { label: "Pricing", to: "/pricing" },
-  { label: "Order", to: "/order" },
-];
+import { motion, useScroll, useMotionValueEvent } from "framer-motion";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import logo2 from "../../../assets/logo2.png";
 
 export default function Header() {
-  const location = useLocation();
+  const navigate = useNavigate();
+  const { scrollY } = useScroll();
+
+  const [showHeader, setShowHeader] = useState(true);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    // Background blur trigger
+    setIsScrolled(latest > 10);
+
+    // ONLY show at very top
+    if (latest < 40) {
+      setShowHeader(true);
+    } else {
+      setShowHeader(false);
+    }
+  });
 
   return (
-    <header
+    <motion.header
+      initial={{ y: -120, opacity: 0, scale: 0.98 }}
+      animate={{
+        y: showHeader ? 0 : -120,
+        opacity: showHeader ? 1 : 0,
+        scale: showHeader ? 1 : 0.96,
+      }}
+      transition={{
+        type: "spring",
+        stiffness: 260,
+        damping: 25,
+      }}
       style={{
-        position: "sticky",
-        top: 0,
-        zIndex: 50,
-        backdropFilter: "blur(18px)",
-        background: "rgba(4,7,19,0.72)",
-        borderBottom: "1px solid rgba(255,255,255,0.06)",
+        ...header,
+        ...(isScrolled ? headerScrolled : {}),
       }}
     >
-      <Container>
-        <div
-          style={{
-            minHeight: "78px",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            gap: "1rem",
-          }}
-        >
-          <Link to="/" style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-            <div
-              style={{
-                width: 42,
-                height: 42,
-                borderRadius: 14,
-                display: "grid",
-                placeItems: "center",
-                background: "linear-gradient(135deg, #7c5cff, #22d3ee)",
-                boxShadow: "0 10px 30px rgba(124,92,255,.35)",
-              }}
-            >
-              <FaCrown />
-            </div>
-            <div>
-              <div style={{ fontWeight: 900, letterSpacing: "-0.02em" }}>LegendFrame</div>
-              <div style={{ fontSize: "0.75rem", color: "var(--muted)" }}>
-                AI Portrait Studio
-              </div>
-            </div>
-          </Link>
+      {/* Logo */}
+      <div style={logoWrapper} onClick={() => navigate("/")}>
+        <img src={logo2} alt="AI Revenue Logo" style={logoImg} />
+      </div>
 
-          <nav
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "1rem",
-            }}
-          >
-            <div className="desktop-nav" style={{ display: "flex", gap: "0.6rem" }}>
-              {links.map((link) => {
-                const active = location.pathname === link.to;
-                return (
-                  <motion.div key={link.to} whileHover={{ y: -1 }}>
-                    <Link
-                      to={link.to}
-                      style={{
-                        padding: "10px 14px",
-                        borderRadius: "12px",
-                        fontWeight: 700,
-                        color: active ? "white" : "var(--muted)",
-                        background: active ? "rgba(255,255,255,0.06)" : "transparent",
-                      }}
-                    >
-                      {link.label}
-                    </Link>
-                  </motion.div>
-                );
-              })}
-            </div>
-
-            <div className="desktop-cta">
-              <GlowButton to="/order">Order My Portrait →</GlowButton>
-            </div>
-          </nav>
-        </div>
-      </Container>
-    </header>
+      {/* CTA */}
+      <motion.button
+        whileHover={{
+          scale: 1.08,
+          boxShadow: "0 8px 25px rgba(124, 92, 255, 0.6)",
+        }}
+        whileTap={{ scale: 0.94 }}
+        style={cta}
+        onClick={() => navigate("/contact")}
+      >
+        Get Audit
+      </motion.button>
+    </motion.header>
   );
 }
+
+/* ========================= */
+/* STYLES                    */
+/* ========================= */
+
+const header: React.CSSProperties = {
+  position: "fixed",
+  top: 0,
+  left: 0,
+  right: 0,
+  zIndex: 999,
+  display: "flex",
+  justifyContent: "space-between",
+  alignItems: "center",
+  padding: "1rem 2rem",
+  background: "transparent",
+  willChange: "transform, opacity",
+};
+
+const headerScrolled: React.CSSProperties = {
+  backdropFilter: "blur(16px) saturate(180%)",
+  WebkitBackdropFilter: "blur(16px) saturate(180%)",
+  background: "rgba(10, 10, 25, 0.65)",
+  borderBottom: "1px solid rgba(124, 92, 255, 0.2)",
+};
+
+const logoWrapper: React.CSSProperties = {
+  display: "flex",
+  alignItems: "center",
+  cursor: "pointer",
+};
+
+const logoImg: React.CSSProperties = {
+  height: "72px",
+  width: "auto",
+  objectFit: "contain",
+};
+
+const cta: React.CSSProperties = {
+  padding: "0.7rem 1.6rem",
+  borderRadius: "14px",
+  background: "linear-gradient(135deg, #7c5cff, #22d3ee)",
+  border: "none",
+  color: "white",
+  fontWeight: 700,
+  fontSize: "0.95rem",
+  cursor: "pointer",
+  boxShadow: "0 4px 15px rgba(124, 92, 255, 0.4)",
+  transition: "all 0.25s ease",
+};

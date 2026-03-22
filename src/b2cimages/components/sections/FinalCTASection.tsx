@@ -75,10 +75,10 @@ export default function FinalCTASection() {
             boxShadow: "0 30px 100px rgba(168,85,247,.8)",
           }}
           whileTap={{ scale: 0.96 }}
-          onClick={() => navigate("/order")}
+          onClick={() => navigate("/checkout")}
         >
           <FaCrown />
-          Upload My Photo Now
+            Get My Transformation Now
           <FaArrowRight />
         </motion.button>
 
@@ -98,7 +98,6 @@ export default function FinalCTASection() {
 const section: React.CSSProperties = {
   position: "relative",
   marginTop: "6rem",
-  marginBottom: "6rem",
   width: "100%",
   overflow: "hidden",
   maxWidth: "100%"

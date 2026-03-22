@@ -7,7 +7,12 @@ import {
   FaShieldAlt,
   FaRocket,
 } from "react-icons/fa";
-
+import p1d  from "../../../assets/p1d.png";
+import p2d  from "../../../assets/p2d.png";
+import p3d  from "../../../assets/p3d.png";
+import p4d  from "../../../assets/p4d.png";
+import p5d  from "../../../assets/p5d.png";
+import p6d  from "../../../assets/p6d.png";
 /* ========================= */
 /* STYLES SECTION */
 /* ========================= */
@@ -15,93 +20,95 @@ import {
 export default function StylesSection() {
   return (
     <section style={section}>
-      <div style={bgGlow} />
+      <div style={section2}>
+        <div style={bgGlow} />
 
-      {/* TITLE */}
-      <motion.h2
-        style={title}
-        initial={{ opacity: 0, y: 60 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-      >
-        Choose who you want to become.
-        <br />
-        <span style={gradient}>
-          Or take all versions of yourself.
-        </span>
-      </motion.h2>
+        {/* TITLE */}
+        <motion.h2
+          style={title}
+          initial={{ opacity: 0, y: 60 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
+          Choose who you want to become.
+          <br />
+          <span style={gradient}>
+            Or take all versions of yourself.
+          </span>
+        </motion.h2>
 
-      {/* SUBTITLE */}
-      <motion.p
-        style={subtitle}
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ delay: 0.2 }}
-        viewport={{ once: true }}
-      >
-        Most clients don’t stop at one.
-        <br />
-        They build a full wall collection of power identities.
+        {/* SUBTITLE */}
+        <motion.p
+          style={subtitle}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ delay: 0.2 }}
+          viewport={{ once: true }}
+        >
+          Most clients don’t stop at one.
+          <br />
+          They build a full wall collection of power identities.
 
 
-      </motion.p>
+        </motion.p>
 
-      {/* GRID */}
-      <div style={grid}>
-        <StyleCard
-          icon={<FaUserSecret />}
-          title="Gangster"
-          text="Dark, powerful, untouchable. The version people don’t mess with."
-          img="https://images.unsplash.com/photo-1614285255679-e9dff78bfe88?q=80&w=800"
-        />
+        {/* GRID */}
+        <div style={grid}>
+          <StyleCard
+            icon={<FaUserSecret />}
+            title="Gangster"
+            text="Dark, powerful, untouchable. The version people don’t mess with."
+            img={p1d}
+          />
 
-        <StyleCard
-          icon={<FaCrown />}
-          title="Billionaire CEO"
-          text="Luxury, authority, success. The version people respect instantly."
-          img="https://images.unsplash.com/photo-1603415526960-f7e0328c63b1?q=80&w=800"
-        />
+          <StyleCard
+            icon={<FaCrown />}
+            title="Billionaire CEO"
+            text="Luxury, authority, success. The version people respect instantly."
+            img={p2d}
+          />
 
-        <StyleCard
-          icon={<FaFire />}
-          title="Movie Character"
-          text="Cinematic, dramatic, iconic. Looks like a Netflix poster."
-          img="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?q=80&w=800"
-        />
+          <StyleCard
+            icon={<FaFire />}
+            title="Movie Character"
+            text="Cinematic, dramatic, iconic. Looks like a Netflix poster."
+            img={p3d}
+          />
 
-        <StyleCard
-          icon={<FaShieldAlt />}
-          title="Warrior"
-          text="Strong, fearless, dominant. Built for impact."
-          img="https://images.unsplash.com/photo-1583394838336-acd977736f90?q=80&w=800"
-        />
+          <StyleCard
+            icon={<FaShieldAlt />}
+            title="Warrior"
+            text="Strong, fearless, dominant. Built for impact."
+            img={p4d}
+          />
 
-        <StyleCard
-          icon={<FaGem />}
-          title="Luxury Portrait"
-          text="Clean, elegant, timeless. Designed for premium wall art."
-          img="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=800"
-        />
+          <StyleCard
+            icon={<FaGem />}
+            title="Luxury Portrait"
+            text="Clean, elegant, timeless. Designed for premium wall art."
+            img={p5d}
+          />
 
-        <StyleCard
-          icon={<FaRocket />}
-          title="Custom Vision"
-          text="Describe anything. We bring your exact idea to life."
-          img="https://images.unsplash.com/photo-1527980965255-d3b416303d12?q=80&w=800"
-        />
-      </div>
+          <StyleCard
+            icon={<FaRocket />}
+            title="Custom Vision"
+            text="Describe anything. We bring your exact idea to life."
+            img={p6d}
+          />
+        </div>
 
-      {/* VALUE PUSH */}
-      <motion.div
-        style={bottomBox}
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.3 }}
-        viewport={{ once: true }}
-      >
-        Most clients order <strong>3–5 styles</strong> and turn them into killer collection.
-      </motion.div>
+        {/* VALUE PUSH */}
+        <motion.div
+          style={bottomBox}
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3 }}
+          viewport={{ once: true }}
+        >
+          Most clients order <strong>3–5 styles</strong> and turn them into killer collection.
+        </motion.div>
+        </div>
     </section>
   );
 }
@@ -155,12 +162,23 @@ function StyleCard({
 
 const section: React.CSSProperties = {
   padding: "clamp(5rem, 10vw, 8rem) 1.5rem",
-  maxWidth: "1200px",
+  maxWidth: "100%",
   margin: "0 auto",
   textAlign: "center",
   position: "relative",
 };
 
+const section2: React.CSSProperties = {
+  maxWidth: "1280px",
+  margin: "0 auto",          // ← this centers it horizontally
+  // or equivalently (modern browsers, 2025+ safe):
+  // marginInline: "auto",
+
+  // Optional but often useful additions:
+  width: "100%",             // makes it take full available width up to maxWidth
+  paddingLeft: "1rem",       // ← optional: breathing room on small screens
+  paddingRight: "1rem",
+};
 const bgGlow: React.CSSProperties = {
   position: "absolute",
   inset: 0,

@@ -1,6 +1,11 @@
 import { motion, useMotionValue, useTransform } from "framer-motion";
 import { useRef } from "react";
-
+import p1  from "../../../assets/p1.jpg";
+import p1d  from "../../../assets/p1d.png";
+import p2  from "../../../assets/p2.jpg";
+import p2d  from "../../../assets/p2d.png";
+import p3  from "../../../assets/p3.jpg";
+import p3d  from "../../../assets/p3d.png";
 /* ========================= */
 /* TRANSFORMATION SECTION */
 /* ========================= */
@@ -40,20 +45,20 @@ export default function TransformationSection() {
       {/* SLIDERS */}
       <div style={grid}>
         <BeforeAfter
-          before="https://images.unsplash.com/photo-1527980965255-d3b416303d12?q=80&w=800"
-          after="https://images.unsplash.com/photo-1614285255679-e9dff78bfe88?q=80&w=800"
+          before={p1}
+          after={p1d}
           label="Gangster Identity"
         />
 
         <BeforeAfter
-          before="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=800"
-          after="https://images.unsplash.com/photo-1603415526960-f7e0328c63b1?q=80&w=800"
+          before={p2}
+          after={p2d}
           label="Luxury CEO"
         />
 
         <BeforeAfter
-          before="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=800"
-          after="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?q=80&w=800"
+          before={p3}
+          after={p3d}
           label="Cinematic Character"
         />
       </div>

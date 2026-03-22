@@ -1,11 +1,14 @@
 import { motion } from "framer-motion";
 import { FaCheck, FaFire, FaGem, FaBolt } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 /* ========================= */
 /* OFFER SECTION */
 /* ========================= */
 
 export default function OfferSection() {
+  const navigate = useNavigate();
+
   return (
     <section style={section}>
       <div style={bgGlow} />
@@ -67,7 +70,7 @@ export default function OfferSection() {
 
         {/* PRICE */}
         <div style={priceWrap}>
-          <span style={price}>€29</span>
+          <span style={price}>€49.97</span>
           <span style={priceNote}>One-time payment</span>
         </div>
 
@@ -79,6 +82,8 @@ export default function OfferSection() {
             boxShadow: "0 30px 100px rgba(168,85,247,.7)",
           }}
           whileTap={{ scale: 0.96 }}
+        onClick={() => navigate("/order")}
+
         >
           Get My Transformation →
         </motion.button>

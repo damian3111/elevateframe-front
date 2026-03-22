@@ -8,6 +8,8 @@ import PricingSection from "../components/sections/PricingSection";
 import GuaranteeSection from "../components/sections/GuaranteeSection";
 import FAQSection from "../components/sections/FAQSection";
 import FinalCTASection from "../components/sections/FinalCTASection";
+import Header from "../components/layout/Header";
+import Footer from "../components/layout/Footer";
 
 export default function Home() {
   return (
@@ -18,7 +20,7 @@ export default function Home() {
       <div className="bg-orb two" />
       <div className="bg-orb three" />
 
-      {/* <Header /> */}
+      <Header />
 
       <main>
         <HeroSection />
@@ -28,15 +30,15 @@ export default function Home() {
          <StylesSection /> 
         {/* <OfferSection /> */}
         {/* <GalleryPreviewSection /> */}
-        <TestimonialsSection />/
+        <TestimonialsSection />
         <PricingSection />
         <GuaranteeSection />
         <FAQSection />
-<FinalCTASection/>
+        <FinalCTASection/>
 
       </main>
 
-      {/* <Footer /> */}
+      <Footer />
       {/* <StickyMobileCTA /> */}
     </div>
 </>

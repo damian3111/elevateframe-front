@@ -95,7 +95,7 @@ export default function HeroSection() {
         style={cta}
         onClick={() => navigate("/order")}
       >
-        Upload My Photo →
+        Get My Transformation →
       </motion.button>
 
       {/* MICRO TRUST */}

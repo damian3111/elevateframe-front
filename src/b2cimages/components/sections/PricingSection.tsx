@@ -1,7 +1,10 @@
 import { motion } from "framer-motion";
 import { Check, Star, Sparkles, ShieldCheck } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 export default function OfferSection() {
+  const navigate = useNavigate();
+
   return (
     <section className="relative ">
       {/* Background glow */}
@@ -68,7 +71,7 @@ export default function OfferSection() {
               {/* Price */}
               <div className="flex items-end justify-center gap-3">
                 <span className="text-5xl md:text-6xl font-extrabold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-                  €29
+                  €49
                 </span>
                 <span className="text-white/40 line-through text-xl md:text-2xl">
                   €79
@@ -130,6 +133,7 @@ export default function OfferSection() {
                 whileHover={{ scale: 1.05, boxShadow: "0 30px 100px rgba(168,85,247,.7)" }}
                 whileTap={{ scale: 0.96 }}
                 className="w-full md:w-auto px-10 py-4 text-lg font-bold rounded-xl bg-gradient-to-r from-purple-600 to-pink-500 text-white shadow-lg hover:scale-[1.02] transition-transform duration-300"
+               onClick={() => navigate("/order")}
               >
                 Get My Transformation
               </motion.button>

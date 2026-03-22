@@ -1,6 +1,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import { FaChevronDown, FaShieldAlt, FaMagic, FaClock } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 /* ========================= */
 /* FAQ SECTION */
@@ -8,6 +9,7 @@ import { FaChevronDown, FaShieldAlt, FaMagic, FaClock } from "react-icons/fa";
 
 export default function FAQSection() {
   const [open, setOpen] = useState<number | null>(0);
+  const navigate = useNavigate();
 
   const toggle = (index: number) => {
     setOpen(open === index ? null : index);
@@ -140,6 +142,7 @@ export default function FAQSection() {
             boxShadow: "0 25px 80px rgba(168,85,247,.6)",
           }}
           whileTap={{ scale: 0.96 }}
+          onClick={() => navigate("/checkout")}
         >
           Get My Transformation →
         </motion.button>
