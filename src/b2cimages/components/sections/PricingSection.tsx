@@ -133,7 +133,7 @@ export default function OfferSection() {
                 whileHover={{ scale: 1.05, boxShadow: "0 30px 100px rgba(168,85,247,.7)" }}
                 whileTap={{ scale: 0.96 }}
                 className="w-full md:w-auto px-10 py-4 text-lg font-bold rounded-xl bg-gradient-to-r from-purple-600 to-pink-500 text-white shadow-lg hover:scale-[1.02] transition-transform duration-300"
-               onClick={() => navigate("/order")}
+               onClick={() => navigate("/checkout")}
               >
                 Get My Transformation
               </motion.button>

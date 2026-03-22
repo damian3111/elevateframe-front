@@ -53,9 +53,9 @@ export default function Header() {
         }}
         whileTap={{ scale: 0.94 }}
         style={cta}
-        onClick={() => navigate("/contact")}
+        onClick={() => navigate("/checkout")}
       >
-        Get Audit
+        Get Transformation
       </motion.button>
     </motion.header>
   );

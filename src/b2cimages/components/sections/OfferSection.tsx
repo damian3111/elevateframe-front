@@ -82,7 +82,7 @@ export default function OfferSection() {
             boxShadow: "0 30px 100px rgba(168,85,247,.7)",
           }}
           whileTap={{ scale: 0.96 }}
-        onClick={() => navigate("/order")}
+        onClick={() => navigate("/checkout")}
 
         >
           Get My Transformation →

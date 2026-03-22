@@ -93,7 +93,7 @@ export default function HeroSection() {
         whileHover={{ scale: 1.08 }}
         whileTap={{ scale: 0.96 }}
         style={cta}
-        onClick={() => navigate("/order")}
+        onClick={() => navigate("/checkout")}
       >
         Get My Transformation →
       </motion.button>
