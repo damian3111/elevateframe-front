@@ -126,7 +126,6 @@ export default function OfferSection() {
                 </div>
               </div>
             </div>
-
             {/* CTA */}
             <div className="text-center mb-6">
               <motion.button
