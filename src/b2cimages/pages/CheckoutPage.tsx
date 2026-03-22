@@ -72,7 +72,6 @@ export default function CheckoutPage() {
           <span style={price}>€49.97</span>
           <div style={priceNote}>Limited launch pricing</div>
         </div>
-
         {/* VALUE STACK */}
         <div style={offer}>
           <OfferItem icon={<FaBrain />} text="High-status portrait in your chosen style" />
