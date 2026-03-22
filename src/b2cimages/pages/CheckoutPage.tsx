@@ -69,7 +69,7 @@ export default function CheckoutPage() {
         {/* PRICE */}
         <div style={priceBox}>
           <span style={oldPrice}>€59</span>
-          <span style={price}>€9.90</span>
+          <span style={price}>€49.97</span>
           <div style={priceNote}>Limited launch pricing</div>
         </div>
 

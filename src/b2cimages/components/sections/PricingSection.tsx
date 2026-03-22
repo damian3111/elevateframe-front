@@ -71,7 +71,7 @@ export default function OfferSection() {
               {/* Price */}
               <div className="flex items-end justify-center gap-3">
                 <span className="text-5xl md:text-6xl font-extrabold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-                  €49
+                  €49.97
                 </span>
                 <span className="text-white/40 line-through text-xl md:text-2xl">
                   €79
